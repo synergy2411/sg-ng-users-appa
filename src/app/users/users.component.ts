@@ -13,7 +13,8 @@ export class UsersComponent{
         isWorking : true,
         income : 50000,
         company : "Microsoft Inc.",
-        image : "./assets/images/bill.jpg"
+        image : "./assets/images/bill.jpg",
+        vote : 180
     }
 
     moreInfo(user : any){

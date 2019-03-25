@@ -15,6 +15,16 @@
                     <p>Date of Birth : {{user.dob}}</p>
                     <p>Income : <span [innerHTML]="user.income"></span></p>
                 </div>
+                <div class="col-xs-2 col-sm-2 col-md-2">
+                    Total Votes : {{ user.vote }}
+                    <input type="number" 
+                        [value] ="user.vote" 
+                        (change) ="user.vote = $event.target.value"
+                        class="form-control">
+                    <input type="number" 
+                        [(ngModel)]="user.vote"
+                        class="form-control">
+                </div>
             </div>
 
 
