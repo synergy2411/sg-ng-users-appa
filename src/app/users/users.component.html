@@ -1,0 +1,23 @@
+<div class="container">
+    <h1>Users App!</h1>
+    <ul class="list-unstyled">
+        <li class="well">
+            <div class="row">
+                <div class="col-xs-2 col-sm-2 col-md-2">
+                    <img [src]="user.image" class="img-responsive img-circle">
+                    <hr>
+                    <button class="btn btn-block btn-info btn-small" 
+                        (click)="moreInfo(user)">
+                            More Info</button>
+                </div>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <h2> {{ user.firstName + "  " + user.lastName}} </h2>
+                    <p>Date of Birth : {{user.dob}}</p>
+                    <p>Income : <span [innerHTML]="user.income"></span></p>
+                </div>
+            </div>
+
+
+        </li>
+    </ul>
+</div>
