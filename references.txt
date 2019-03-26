@@ -3,9 +3,10 @@ REFERENCES :
 --------------
 repo > https://github.com/synergy2411/sg-ng-users-appa
 
-Typescript Ref :    typescriptlang.org
-JavaScript Ref :    javascript.info
-Angular Ref :       angular.io
+Typescript Ref  :   typescriptlang.org
+JavaScript Ref  :   javascript.info
+Angular Ref     :   angular.io
+Angular book    :   https://angular-2-training-book.rangle.io/
 
 _______________________________________________________
 
@@ -27,3 +28,8 @@ for Angular 5.x
 > ng new <project_name>
 > cd <project_namme>
 > ng serve [--port 4040]
+> ng generate component <component_name>
+    > ng g c <component_name>
+    > ng g c auth/login --spec false
+> ng generate directive <directive_name>
+    >> ng g d <directive_name>

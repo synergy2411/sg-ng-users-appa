@@ -9,6 +9,7 @@ import { UserInfoComponent } from './users/user-info/user-info.component';
 import { UserImgComponent } from './users/user-img/user-img.component';
 import { UserVoteComponent } from './users/user-vote/user-vote.component';
 import { UnlessDirective } from './directives/unless.directive';
+import { LoginComponent } from './auth/login/login.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { UnlessDirective } from './directives/unless.directive';
     UserInfoComponent, UserImgComponent, 
     UserVoteComponent,
     HighlightDirective,
-    UnlessDirective
+    UnlessDirective,
+    LoginComponent
   ],
   imports: [
     BrowserModule, FormsModule
