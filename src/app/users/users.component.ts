@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { USER_DATA } from '../model/mocks';
+import { IUser } from '../model/user.model';
 
 @Component({
     selector : "app-users",
@@ -6,18 +8,20 @@ import { Component } from '@angular/core';
 })
 
 export class UsersComponent{
-    user = {
-        firstName : "Bill",
-        lastName : "Gates",
-        dob : new Date("Dec 24 '1965"),
-        isWorking : true,
-        income : 50000,
-        company : "Microsoft Inc.",
-        image : "./assets/images/bill.jpg",
-        vote : 180
+    title : string = "Title of the app";
+
+    users : IUser[];
+
+    ngOnInit(){
+        this.users = USER_DATA;
     }
 
-    moreInfo(user : any){
+    constructor(){
+        
+    }
+
+
+    moreInfo(user : IUser){
         alert(`${user.firstName} is working with ${user.company}!!`);
     }
 

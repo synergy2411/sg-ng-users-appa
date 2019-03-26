@@ -1,33 +1,26 @@
 <div class="container">
-    <h1>Users App!</h1>
-    <ul class="list-unstyled">
-        <li class="well">
-            <div class="row">
-                <div class="col-xs-2 col-sm-2 col-md-2">
-                    <img [src]="user.image" class="img-responsive img-circle">
-                    <hr>
-                    <button class="btn btn-block btn-info btn-small" 
-                        (click)="moreInfo(user)">
-                            More Info</button>
-                </div>
-                <div class="col-xs-8 col-sm-8 col-md-8">
-                    <h2> {{ user.firstName + "  " + user.lastName}} </h2>
-                    <p>Date of Birth : {{user.dob}}</p>
-                    <p>Income : <span [innerHTML]="user.income"></span></p>
-                </div>
-                <div class="col-xs-2 col-sm-2 col-md-2">
-                    Total Votes : {{ user.vote }}
-                    <input type="number" 
-                        [value] ="user.vote" 
-                        (change) ="user.vote = $event.target.value"
-                        class="form-control">
-                    <input type="number" 
-                        [(ngModel)]="user.vote"
-                        class="form-control">
-                </div>
-            </div>
+<h1>Users App!</h1>
+<input type="text" [(ngModel)] = "title">
+<ul class="list-unstyled">
+<li class="well" *ngFor="let user of users">
+    <div class="row">
+        <div class="col-xs-2 col-sm-2 col-md-2">
+            <app-user-img [title]="title" (btnClicked)="moreInfo($event)" [user]="user"></app-user-img>
+        </div>
+        <div class="col-xs-8 col-sm-8 col-md-8">
+            <app-user-info [user]="user"></app-user-info>
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2">
+            <app-user-vote>
 
-
-        </li>
-    </ul>
+                <div class="my-div">Total Votes : {{ user.vote }}</div>
+                <input type="number" [value]="user.vote" (change)="user.vote = $event.target.value"
+                    class="form-control">
+                <input type="number" [(ngModel)]="user.vote" class="form-control">
+                
+            </app-user-vote>
+        </div>
+    </div>
+</li>
+</ul>
 </div>
