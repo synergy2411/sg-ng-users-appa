@@ -1,3 +1,32 @@
-<h1> {{ user.firstName + "  " + user.lastName}} </h1>
-<p>Date of Birth : {{user.dob}}</p>
-<p>Income : <span [innerHTML]="user.income"></span></p>
+<h1  [ngStyle]="dynamicStyles" app-highlight [dynamicColor]="dynamicColor"> {{ user.firstName + "  " + user.lastName}} </h1>
+<!-- <p [ngClass]= "['bold', 'feature']">Date of Birth : {{user.dob}}</p> -->
+<!-- <p [ngClass]= "{'bold' : true, 'feature' : false}">Date of Birth : {{user.dob}}</p> -->
+<p [ngClass]= "dynamicClasses">Date of Birth : {{user.dob}}</p>
+<p *ngIf="user.isWorking; else elseTemplate">Income : <span [innerHTML]="user.income"></span></p>
+
+<ng-template #elseTemplate>
+    <p>{{ user.firstName }} is not working now!</p>
+</ng-template>
+
+
+<button type="button" class="btn btn-block btn-default" (click)="onToggle()">Toggle</button>
+
+<p *appUnless = "user.isWorking">Income  : {{ user.income }}</p>
+
+<!-- <ng-template [appUnless]="user.isWorking">
+    <p>Income  : {{ user.income }}</p>
+</ng-template> -->
+
+<!-- 
+    Desugar Syntax
+    <ng-template [ngIf]="user.isWorking">
+        <p>Income : <span [innerHTML]="user.income"></span></p>
+    </ng-template> 
+-->
+
+<!-- <div [ngSwitch]="index">
+    <div *ngSwitchCase="'0'">Output 1</div>
+    <div *ngSwitchCase="'1'">Output 2</div>
+    <div *ngSwitchCase="'2'">Output 3</div>
+    <div *ngSwitchDefault>Default</div>
+</div> -->

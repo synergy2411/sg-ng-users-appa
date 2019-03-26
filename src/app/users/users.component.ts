@@ -16,11 +16,6 @@ export class UsersComponent{
         this.users = USER_DATA;
     }
 
-    constructor(){
-        
-    }
-
-
     moreInfo(user : IUser){
         alert(`${user.firstName} is working with ${user.company}!!`);
     }

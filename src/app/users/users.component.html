@@ -2,13 +2,15 @@
 <h1>Users App!</h1>
 <input type="text" [(ngModel)] = "title">
 <ul class="list-unstyled">
-<li class="well" *ngFor="let user of users">
+<li class="well" *ngFor="let user of users; index as i; first as isFirst; even as isEven">
     <div class="row">
+        
         <div class="col-xs-2 col-sm-2 col-md-2">
+                {{ i }} Is this first ? {{ isFirst }} Is this Even ? {{ isEven }}
             <app-user-img [title]="title" (btnClicked)="moreInfo($event)" [user]="user"></app-user-img>
         </div>
         <div class="col-xs-8 col-sm-8 col-md-8">
-            <app-user-info [user]="user"></app-user-info>
+            <app-user-info [user]="user" [index] = "i"></app-user-info>
         </div>
         <div class="col-xs-2 col-sm-2 col-md-2">
             <app-user-vote>

@@ -19,15 +19,7 @@ import {
   templateUrl: './user-img.component.html',
   styleUrls: ['./user-img.component.css']
 })
-export class UserImgComponent implements
-  OnChanges,
-  OnInit,
-  DoCheck,
-  AfterContentInit,
-  AfterContentChecked,
-  AfterViewInit,
-  AfterViewChecked,
-  OnDestroy {
+export class UserImgComponent {
 
   @Input("user") user: any;
   @Input("title") title: string;
@@ -38,15 +30,15 @@ export class UserImgComponent implements
     this.btnClicked.emit(user);
   }
 
-  ngOnChanges(changes : SimpleChanges){
-    console.log("ngOnChanges", changes);
-  }
-  ngOnInit(){console.log("ngOnInit")}
-  ngDoCheck(){console.log("ngDoCheck")}
-  ngAfterContentInit(){console.log("AfterContentInit")}
-  ngAfterContentChecked(){console.log("ngAfterContentChecked")}
-  ngAfterViewInit(){console.log("ngAfterViewInit")}
-  ngAfterViewChecked(){console.log("ngAfterViewChecked")}
-  ngOnDestroy(){console.log("ngOnDestroy")}
+  // ngOnChanges(changes : SimpleChanges){
+  //   console.log("ngOnChanges", changes);
+  // }
+  // ngOnInit(){console.log("ngOnInit")}
+  // ngDoCheck(){console.log("ngDoCheck")}
+  // ngAfterContentInit(){console.log("AfterContentInit")}
+  // ngAfterContentChecked(){console.log("ngAfterContentChecked")}
+  // ngAfterViewInit(){console.log("ngAfterViewInit")}
+  // ngAfterViewChecked(){console.log("ngAfterViewChecked")}
+  // ngOnDestroy(){console.log("ngOnDestroy")}
 
 }
