@@ -31,5 +31,10 @@ for Angular 5.x
 > ng generate component <component_name>
     > ng g c <component_name>
     > ng g c auth/login --spec false
+    > ng g c auth/register --spec false
 > ng generate directive <directive_name>
-    >> ng g d <directive_name>
+    > ng g d <directive_name>
+> ng generate pipe <pipe_name>
+    > ng g p pipes/filter --spec false
+> ng generate service <service_name>
+    >ng g s services/auth --spec false

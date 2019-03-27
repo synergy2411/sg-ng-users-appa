@@ -4,9 +4,17 @@
     Welcome to {{ title }}!
   </h1>
   
+  <h1>Countr in App : {{ dataService.counter }}</h1>
+  <button (click)="increase()" class="btn btn-primary">Increase</button>
 
 </div>
 
+<!-- <app-observable-demo></app-observable-demo> -->
+
+<!-- <app-pipe-demo></app-pipe-demo> -->
+
 <app-login></app-login>
 
-<!-- <app-users></app-users> -->
+<app-register></app-register>
+
+<app-users></app-users>

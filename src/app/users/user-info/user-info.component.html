@@ -1,17 +1,19 @@
-<h1  [ngStyle]="dynamicStyles" app-highlight [dynamicColor]="dynamicColor"> {{ user.firstName + "  " + user.lastName}} </h1>
+<h1 [ngStyle]="dynamicStyles" app-highlight [dynamicColor]="dynamicColor">
+    {{ user.firstName + "  " + user.lastName | uppercase}}
+</h1>
 <!-- <p [ngClass]= "['bold', 'feature']">Date of Birth : {{user.dob}}</p> -->
 <!-- <p [ngClass]= "{'bold' : true, 'feature' : false}">Date of Birth : {{user.dob}}</p> -->
-<p [ngClass]= "dynamicClasses">Date of Birth : {{user.dob}}</p>
-<p *ngIf="user.isWorking; else elseTemplate">Income : <span [innerHTML]="user.income"></span></p>
+<p [ngClass]="dynamicClasses">Date of Birth : {{user.dob | date : 'MMM/dd/yyyy'}}</p>
+<p *ngIf="user.isWorking; else elseTemplate">
+    Income : <span [innerHTML]="user.income | currency : 'EUR'"></span></p>
 
 <ng-template #elseTemplate>
     <p>{{ user.firstName }} is not working now!</p>
 </ng-template>
 
-
 <button type="button" class="btn btn-block btn-default" (click)="onToggle()">Toggle</button>
 
-<p *appUnless = "user.isWorking">Income  : {{ user.income }}</p>
+<p *appUnless="user.isWorking">Income : {{ user.income }}</p>
 
 <!-- <ng-template [appUnless]="user.isWorking">
     <p>Income  : {{ user.income }}</p>

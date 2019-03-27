@@ -1,0 +1,71 @@
+<div class="container">
+  <form class="well" [formGroup]="registerForm">
+    <h1 class="text-center text-success">Register</h1>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <label for="username">Username :</label>
+        </div>
+        <div class="col-xs-9 col-sm-9 col-md-9">
+          <input type="email" name="username" class="form-control" [formControl]="username">
+        </div>
+      </div>
+      <div [hidden]="username.valid || username.untouched">
+        <div class="alert alert-danger">
+          <p>Some problem with username.</p>
+          <div [hidden]="!username.hasError('required')">
+            <p>*Username is mandatory field</p>
+          </div>
+          <div [hidden]="!username.hasError('minlength')">
+            <p>*Username must be 6 characters long.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <label for="password">Password :</label>
+        </div>
+        <div class="col-xs-9 col-sm-9 col-md-9">
+          <input type="password" name="password" class="form-control" [formControl]="password">
+        </div>
+      </div>
+      <div [hidden]="password.valid || password.untouched">
+        <div class="alert alert-danger">
+          <p>Some problem with password</p>
+          <div [hidden]="!password.hasError('required')">
+            <p>*Password is mandatory field</p>
+          </div>
+          <div [hidden]="!password.hasError('needExclamation')">
+            <p>*Password must have Exclamation mark.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <label for="confirm">Confirm Password :</label>
+        </div>
+        <div class="col-xs-9 col-sm-9 col-md-9">
+          <input type="text" name="confirm" class="form-control" [formControl]="confirm">
+        </div>
+      </div>
+      <div [hidden]="confirm.valid || confirm.untouched">
+        <div class="alert alert-danger">
+          <p>*Problem with confirm password.</p>
+          <div [hidden]="!confirm.hasError('duplicatePassword')">
+            <p>*Confirm password does not match.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Form State : {{ registerForm.valid }} -->
+    <button class="btn btn-success btn-block btn-small" (click)="register()" [disabled]="!registerForm.valid">
+      Register
+    </button>
+  </form>
+</div>
