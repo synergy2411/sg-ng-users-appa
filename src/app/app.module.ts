@@ -1,11 +1,13 @@
+import { LoginGaurdService } from './services/login-gaurd.service';
 
 import { HighlightDirective } from './directives/highlight.directive';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, enableProdMode } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { EmployeeModule } from './employee/employee.module';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
@@ -28,6 +30,7 @@ import { ProductComponent } from './product/product.component';
 import { SpecificationComponent } from './product/specification/specification.component';
 import { OverviewComponent } from './product/overview/overview.component';
 
+// enableProdMode();
 
 @NgModule({
   declarations: [
@@ -52,7 +55,8 @@ import { OverviewComponent } from './product/overview/overview.component';
     ReactiveFormsModule,
     HttpModule,
     HttpClientModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES),
+    EmployeeModule
   ],
   providers: [ DataService, AuthService, {
     provide : HTTP_INTERCEPTORS,
@@ -62,7 +66,7 @@ import { OverviewComponent } from './product/overview/overview.component';
     provide : HTTP_INTERCEPTORS,
     useClass : LoggerInterceptorService,
     multi : true
-  } ],
+  }, LoginGaurdService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

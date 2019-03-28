@@ -8,6 +8,8 @@
           <li><a [routerLink]="['pipe']">Pipe</a></li>
           <li><a [routerLink]="['observable']">Observable</a></li>
           <li><a [routerLink]="['product']">Product</a></li>
+          <li><a [routerLink]="['employee']">Employee</a></li>
+          <li><a [routerLink]="['lazy']">Lazy</a></li>
           <li *ngIf="authService.isAuthenticated()"><a [routerLink]="['users']">Users</a></li>
         </ul>
       </div>
@@ -24,6 +26,16 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
+
+  <a [href]="dangerUrl">Danger</a>
+  <a [href]="safeUrl">Safe</a>
+
+  <hr>
+  Interpolation : {{ jsSnippets }}
+
+  Property Binding : <p [innerHTML]="jsSnippets"></p>
+
+  <!-- <app-new-employee></app-new-employee> -->
 
   <!-- <h1>Countr in App : {{ dataService.counter }}</h1>
   <button (click)="increase()" class="btn btn-primary">Increase</button> -->

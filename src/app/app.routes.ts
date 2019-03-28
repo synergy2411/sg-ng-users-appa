@@ -1,3 +1,5 @@
+import { NewEmployeeComponent } from './employee/new-employee/new-employee.component';
+import { LoginGaurdService } from './services/login-gaurd.service';
 import { ProductComponent } from './product/product.component';
 import { UsersComponent } from './users/users.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -20,7 +22,8 @@ export const APP_ROUTES : Routes = [{
     component : RegisterComponent
 }, {
     path : "users",                    // http://localhost:4200/users
-    component : UsersComponent
+    component : UsersComponent,
+    canActivate : [LoginGaurdService]
 }, {
     path : "pipe",                     // http://localhost:4200/pipe
     component : PipeDemoComponent
@@ -37,6 +40,12 @@ export const APP_ROUTES : Routes = [{
         path : "spec",
         component : SpecificationComponent
     }]
+},{
+    path : "employee",
+    component : NewEmployeeComponent
+},{
+    path : 'lazy',
+    loadChildren : "./lazy/lazy.module#LazyModule"
 },{
     path : "**",                           // http://localhost:4200/notexist
     redirectTo : 'login',

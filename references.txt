@@ -47,3 +47,9 @@ for Angular 5.x
     >ng g s services/auth --spec false
     >ng g s services/auth-interceptor --spec false
     >ng g s services/logger-interceptor --spec false
+    >ng g s services/login-gaurd --spec false
+> ng generate module <module_name>
+    >ng g m lazy --spec false
+
+> ng build --aot --prod
+> npm i serve -g
