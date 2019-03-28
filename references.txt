@@ -17,6 +17,10 @@ COMMANDS
 > npm uninstall @angular/cli -g
 > npm install @angular/cli@6 -g
 > ng -v
+>
+// npm i firebase --save
+// npm i rxjs-compat --save
+
 
 for Angular 6.x
     > node > 10.x
@@ -32,9 +36,14 @@ for Angular 5.x
     > ng g c <component_name>
     > ng g c auth/login --spec false
     > ng g c auth/register --spec false
+    > ng g c product --spec false 
+    > ng g c product/overview --spec false 
+    > ng g c product/specification --spec false 
 > ng generate directive <directive_name>
     > ng g d <directive_name>
 > ng generate pipe <pipe_name>
     > ng g p pipes/filter --spec false
 > ng generate service <service_name>
     >ng g s services/auth --spec false
+    >ng g s services/auth-interceptor --spec false
+    >ng g s services/logger-interceptor --spec false

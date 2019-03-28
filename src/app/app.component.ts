@@ -1,6 +1,8 @@
+import { AuthService } from './services/auth.service';
 import { DataService } from './services/data.service';
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +10,11 @@ import * as firebase from 'firebase';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'app';
+  title = 'Users App';
 
-  constructor(public dataService: DataService) { }
+  constructor(public dataService: DataService,
+              public authService : AuthService,
+              private router : Router) { }
 
   ngOnInit() {
     firebase.initializeApp({
@@ -21,6 +25,16 @@ export class AppComponent implements OnInit {
 
   increase() {
     this.dataService.counter++;
+  }
+
+  onLogout(){
+    this.authService.logout((error, isLoggedOut)=>{
+      if(error) console.log(error);
+      if(isLoggedOut){
+        this.router.navigate(['/login']);
+      }
+    })
+      
   }
 
 }
